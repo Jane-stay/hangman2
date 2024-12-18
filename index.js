@@ -1,14 +1,16 @@
-import System from './../system';
-import * as utils from './util.js';
+import System from "./system.js";
+import { makeElementInvisible } from "./util.js";
 
-window.addEventListener("DOMContentLoaded", ()=> {
-    
-    let currentSystem = new System();
+window.addEventListener("DOMContentLoaded", () => {
+  const resetButtonElements = document.getElementsByClassName("reset-button");
+  const answerTextElement = document.getElementById("answerText");
+  let currentSystem = new System();
 
-}
-
-)
-
-
-
-currentSystem();
+  Array.from(resetButtonElements).forEach((element) => {
+    element.addEventListener("click", () => {
+      currentSystem.cleanup();
+      makeElementInvisible(answerTextElement);
+      currentSystem = new System();
+    });
+  });
+});

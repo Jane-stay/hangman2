@@ -1,10 +1,10 @@
 
-export function makeVisible(element) {
+export function makeElementVisible(element) {
     element.classList.add("flex-visible");
     element.classList.remove("invisible");
 }
 
-export function makeInvisible(element) {
+export function makeElementInvisible(element) {
     element.classList.remove("flex-visible");
     element.classList.add("invisible");
 }
